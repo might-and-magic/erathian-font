@@ -1,0 +1,1 @@
+SelectWorthOutputting(); foreach Export("%e.svg"); endloop;

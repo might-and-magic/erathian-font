@@ -4,7 +4,7 @@
 import fontforge
 from pathlib import Path
 
-font = fontforge.open('erathian.sfd')
+font = fontforge.open('Erathian.sfd')
 # font = fontforge.font() # new font
 
 svgFilePaths = list(Path('SVG').glob('**/*.svg'))
@@ -14,5 +14,5 @@ for p in svgFilePaths:
 	glyph = font.createChar(int(dec))
 	glyph.importOutlines(str(p))
 
-#font.generate('erathian.ttf')
-font.save('erathian-output.sfd')
+#font.generate('Erathian.ttf')
+font.save('Erathian-output.sfd')

@@ -1,0 +1,8 @@
+@font-face{
+	font-family: 'Erathian';
+	src: local("Erathian"),
+		url('Erathian.woff2') format('woff2'),
+		url('Erathian.woff') format('woff'),
+		url('Erathian.otf') format('opentype'),
+		url('Erathian.ttf') format('truetype');
+}
