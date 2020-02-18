@@ -7,7 +7,7 @@ from pathlib import Path
 font = fontforge.open('Erathian.sfd')
 # font = fontforge.font() # new font
 
-svgFilePaths = list(Path('SVG').glob('**/*.svg'))
+svgFilePaths = list(Path('svg').glob('**/*.svg'))
 
 for p in svgFilePaths:
 	dec = p.stem.split(" ", 1)[0]

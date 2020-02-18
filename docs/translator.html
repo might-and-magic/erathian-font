@@ -11,11 +11,6 @@ function $(id) {
 	return document.getElementById(id);
 }
 
-var IEVersion = false;
-if (navigator.appVersion.indexOf("MSIE") !== -1) {
-	IEVersion = parseFloat(navigator.appVersion.split("MSIE")[1]);
-}
-
 function copyTo2ndBox(){
 	$("secondbox").value = $("firstbox").value;
 }
@@ -71,9 +66,10 @@ function switchshowcodeCheckbox(){
 
 
 function convert(){
-	var site = "img/",
+	var site = "https://might-and-magic.github.io/erathian-font/png/",
 	txtTemp = $("firstbox").value,
 	txtTempHtml = txtTemp;
+	txtTempMarkdown = txtTemp;
 
 	txtTemp = txtTemp.replace(/[a-z]/g, "[img]" + site + "$&" + ".png[/img]");
 	txtTemp = txtTemp.replace(/[A-Z]/g, function(letter) {
@@ -88,22 +84,26 @@ function convert(){
 	txtTempHtml = txtTempHtml.replace(/\f/g,"&nbsp;");
 	txtTempHtml = txtTempHtml.replace(/\n/g,"<br />");
 
+	txtTempMarkdown = txtTempMarkdown.replace(/[a-z]/g, "![" + "$&" + "](" + site + "$&" + ".png \"" + "$&" + "\")");
+	txtTempMarkdown = txtTempMarkdown.replace(/[A-Z]/g, function(letter) {
+		return "![" + letter + "](" + site + letter.toLowerCase() + "_upper.png \"" + letter + "\")";
+	});
+	txtTempMarkdown = txtTempMarkdown.replace(/\n/g,"  \n");
+
 	$("imgdemo").innerHTML = txtTempHtml;
 	$("imgresultubb").value = txtTemp;
 	$("imgresulthtml").value = txtTempHtml;
+	$("imgresultmarkdown").value = txtTempMarkdown;
 }
 
-function selectTa(id){
-	var el = $(id);
-	el.select();
-}
 
 function copyTa(id){
-	selectTa(id);
+	var el = $(id);
+	el.select();
 	document.execCommand("Copy");
 }
 
-function addEventCompatible(obj, evt, fn){
+function addEvent(obj, evt, fn){
 	if (obj.addEventListener) {
 		obj.addEventListener(evt, fn, false);
 	} else if (obj.attachEvent) {
@@ -112,17 +112,17 @@ function addEventCompatible(obj, evt, fn){
 }
 
 function onTextChange(el, evt){
-	addEventCompatible(el, "keyup", evt);
-	addEventCompatible(el, "paste", function (){
+	addEvent(el, "keyup", evt);
+	addEvent(el, "paste", function (){
 		window.setTimeout(evt, 0);
 	});
-	addEventCompatible(el, "cut", function (){
+	addEvent(el, "cut", function (){
 		window.setTimeout(evt, 0);
 	});
-	addEventCompatible(el, "drop", function (){
+	addEvent(el, "drop", function (){
 		window.setTimeout(evt, 0);
 	});
-	addEventCompatible(el, "change", evt);
+	addEvent(el, "change", evt);
 }
 
 function resizeErathianBox(){
@@ -166,11 +166,7 @@ function resizeErathianBox(){
 			function getTaScrollHeight(el){
 				var hiddenTa = el.cloneNode(false), scrollHeight;
 				hiddenTa.style.borderWidth = "0";
-				if (!IEVersion || IEVersion >= 9) {
-					hiddenTa.style.height = "0";
-				} else {
-					hiddenTa.style.height = "9999px";
-				}
+				hiddenTa.style.height = "0";
 				hiddenTa.style.visibility = "hidden";
 				document.body.appendChild(hiddenTa);
 				hiddenTa.value = el.value;
@@ -208,25 +204,15 @@ function init(){
 	convert();
 	showHideimgresult();
 
-	if (!IEVersion) {
-		$("selectubb").style.display = "inline";
-		$("selecthtml").style.display = "inline";
-		$("copyubb").style.display = "none";
-		$("copyhtml").style.display = "none";
-		addEventCompatible($("selectubb"), "click", function(){
-			selectTa("imgresultubb");
-		});
-		addEventCompatible($("selecthtml"), "click", function(){
-			selectTa("imgresulthtml");
-		});
-	} else {
-		addEventCompatible($("copyubb"), "click", function(){
-			copyTa("imgresultubb");
-		});
-		addEventCompatible($("copyhtml"), "click", function(){
-			copyTa("imgresulthtml");
-		});
-	}
+	addEvent($("copyubb"), "click", function(){
+		copyTa("imgresultubb");
+	});
+	addEvent($("copyhtml"), "click", function(){
+		copyTa("imgresulthtml");
+	});
+	addEvent($("copymarkdown"), "click", function(){
+		copyTa("imgresultmarkdown");
+	});
 
 	onTextChange($("firstbox"), function(){
 		copyTo2ndBox();
@@ -238,31 +224,31 @@ function init(){
 		changeFont();
 		resizeErathianBox();
 	});
-	addEventCompatible($("increase"), "click",  function(){
+	addEvent($("increase"), "click",  function(){
 		changeFontsize(+1);
 		resizeErathianBox();
 	});
-	addEventCompatible($("decrease"), "click",  function(){
+	addEvent($("decrease"), "click",  function(){
 		changeFontsize(-1);
 		resizeErathianBox();
 	});
 
 
-	addEventCompatible($("bold"), "click", changeFont);
-	addEventCompatible($("italic"), "click", changeFont);
+	addEvent($("bold"), "click", changeFont);
+	addEvent($("italic"), "click", changeFont);
 
-	addEventCompatible($("autoresize"), "click", resizeErathianBox);
+	addEvent($("autoresize"), "click", resizeErathianBox);
 
-	addEventCompatible($("showinoriginal"), "click", function(){
+	addEvent($("showinoriginal"), "click", function(){
 		switchBox();
 		resizeErathianBox();
 	});
 
-	addEventCompatible($("showcode"), "click", showHideimgresult);
-	addEventCompatible($("closeimgresult"), "click", switchshowcodeCheckbox);
+	addEvent($("showcode"), "click", showHideimgresult);
+	addEvent($("closeimgresult"), "click", switchshowcodeCheckbox);
 }
 
-addEventCompatible(window, "load", init);
+addEvent(window, "load", init);
 </script>
 </head>
 <body>
@@ -318,15 +304,18 @@ addEventCompatible(window, "load", init);
 		<div class="labeldiv">
 			<label id="ubbcodelable" for="imgresultubb">UBB Code:</label>
 			<a id="copyubb" class="button">Copy</a>
-			<a id="selectubb" class="button" style="display:none;">Select</a>
 		</div>
 		<textarea id="imgresultubb"></textarea>
 		<div class="labeldiv">
 			<label id="htmlcodelable" for="imgresulthtml">HTML Code:</label>
 			<a id="copyhtml" class="button">Copy</a>
-			<a id="selecthtml" class="button" style="display:none;">Select</a>
 		</div>
 		<textarea id="imgresulthtml"></textarea>
+		<div class="labeldiv">
+			<label id="htmlcodelable" for="imgresultmarkdown">Markdown Code:</label>
+			<a id="copymarkdown" class="button">Copy</a>
+		</div>
+		<textarea id="imgresultmarkdown"></textarea>
 		<div class="labeldiv"><label id="imgdemo_lb">Demo:</label></div>
 		<div id="imgdemo">
 		1
@@ -340,7 +329,7 @@ addEventCompatible(window, "load", init);
 			<li><b>Font size, Bold, Italic:</b> Choose the size (in pixels) and bold/italic styles of the Erathian characters</li>
 			<li><b>Auto resize:</b> Automatically resize the Erathian text box</li>
 			<li><b>Show in the original box:</b> Display Erathian text directly in the original text box and hide the second box</li>
-			<li><b>Show UBB &amp; HTML code:</b> Show UBB, HTML code and their demo. You can then copy and paste the <i>UBB Code</i> to your topic of a web forum where <a href="http://en.wikipedia.org/wiki/BBCode">UBB/BBCode</a> is supported, or the <i>HTML Code</i> to your HTML webpage, to insert Erathian letters as embedded images whose style is not adjustable. You may also use Erathian font directly on your webpage, so that you can customize the font size, weight and other css styles, please read: <a href="index.html#webfont"><i>Erathian Font on Webpage with CSS3's @font-face</i></a></li>
+			<li><b>Show UBB &amp; HTML code:</b> Show UBB, HTML code and their demo. You can then copy and paste the <i>UBB Code</i> to your topic of a web forum where <a href="http://en.wikipedia.org/wiki/BBCode">UBB/BBCode</a> is supported, or the <i>HTML Code</i> to your HTML webpage, to insert Erathian letters as embedded images whose style and size are not adjustable. You may also use Erathian font directly on your webpage, so that you can customize the font size, weight and other css styles, please read <a href="index.html#webfont">this</a></li>
 		</ul>
 	</div>
 
