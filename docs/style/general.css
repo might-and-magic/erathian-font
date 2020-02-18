@@ -6,7 +6,7 @@
 
 body {
 	color: #000;
-	font: 14px/1.4em Georgia, serif;
+	font: 15px/1.5em Georgia, serif;
 	background: #F4E3BB;
 	padding: 0.4em 0;
 }
@@ -166,7 +166,7 @@ td {
 }
 
 #wrapper {
-	width: 980px;
+	max-width: 1200px;
 	margin: auto;
 	position: relative;
 }
@@ -205,7 +205,7 @@ td {
 
 #note #certificated {
 	right: 6em;
-	top: 0;
+	top: -3.3em;
 	-ms-transform: rotate(-10deg);
 	-moz-transform: rotate(-10deg);
 	-webkit-transform: rotate(-10deg);
