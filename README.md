@@ -1,4 +1,4 @@
-# Erathian Font Version 2.0
+# Erathian Font Version 2.1
 
 Font of Erathian language in the universe of (Heroes of) Might and Magic game series.
 

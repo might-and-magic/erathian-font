@@ -4,7 +4,7 @@ FullName: Erathian
 FamilyName: Erathian
 Weight: Regular
 Copyright: Erathian:\nCopyright (c) 2008-2020, Tom CHEN (tomchen.org)\nSIL Open Font License v1.1\n\nAlegreya Medium:\nCopyright 2011 The Alegreya Project Authors (https://github.com/huertatipografica/Alegreya)\nSIL Open Font License v1.1
-Version: 2.0
+Version: 2.1
 ItalicAngle: 0
 UnderlinePosition: -209
 UnderlineWidth: 64
@@ -22,7 +22,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1213974834
-ModificationTime: 1582027297
+ModificationTime: 1582124309
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -4477,13 +4477,13 @@ ShortTable: maxp 16
   4
   4
 EndShort
-LangName: 1033 "" "" "" "" "" "Version 2.0" "" "" "Tom CHEN (tomchen.org)" "Tom CHEN (tomchen.org), New World Computing" "" "https://might-and-magic.github.io/erathian" "https://tomchen.org" "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL" "http://scripts.sil.org/OFL"
+LangName: 1033 "" "" "" "" "" "Version 2.1" "" "" "Tom CHEN (tomchen.org)" "Tom CHEN (tomchen.org), New World Computing" "" "https://might-and-magic.github.io/erathian" "https://tomchen.org" "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL" "http://scripts.sil.org/OFL"
 GaspTable: 1 65535 15 1
-OtfFeatName: 'ss05' 1033 "Greek adscript iota+ACIA"
-OtfFeatName: 'ss04' 1033 "Dynamic arrows and triangles"
-OtfFeatName: 'ss03' 1033 "Foundry icon"
-OtfFeatName: 'ss02' 1033 "Arrows, triangles and circles"
 OtfFeatName: 'ss01' 1033 "Roman numerals"
+OtfFeatName: 'ss02' 1033 "Arrows, triangles and circles"
+OtfFeatName: 'ss03' 1033 "Foundry icon"
+OtfFeatName: 'ss04' 1033 "Dynamic arrows and triangles"
+OtfFeatName: 'ss05' 1033 "Greek adscript iota+ACIA"
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: AGL For New Fonts
@@ -4491,7 +4491,7 @@ DisplaySize: -48
 AntiAlias: 1
 FitToEm: 0
 WidthSeparation: 150
-WinInfo: 0 49 16
+WinInfo: 64092 49 16
 BeginPrivate: 0
 EndPrivate
 TeXData: 1 0 0 196083 98041 65361 482345 1048576 65361 783286 444596 497025 792723 393216 433062 380633 303038 157286 324010 404750 52429 2506097 1059062 262144
@@ -16406,7 +16406,6 @@ SplineSet
  387.491210938 268.782226562 387.491210938 268.782226562 386.206054688 264.571289062 c 0,0,1
 EndSplineSet
 Substitution2: "Single Substitution lookup 54 subtable" i.ss01
-Substitution2: "Single Substitution lookup 53 subtable" dotlessi
 Substitution2: "Single Substitution lookup 49 subtable" dotlessi
 Substitution2: "'ss02' Style Set 2 lookup 45 subtable" triagdn
 Substitution2: "'ss01' Style Set 1 lookup 44 subtable" i.ss01
@@ -16872,7 +16871,6 @@ SplineSet
  262.750976562 514.25390625 262.750976562 514.25390625 253.375976562 505.840820312 c 2,67,-1
  244 497.428710938 l 1,0,1
 EndSplineSet
-Substitution2: "Single Substitution lookup 53 subtable" uni0237
 Substitution2: "Single Substitution lookup 49 subtable" uni0237
 Substitution2: "'ss02' Style Set 2 lookup 45 subtable" uni25C0
 Substitution2: "'smcp' Lowercase to Small Capitals lookup 36 subtable" j.sc
@@ -23284,7 +23282,6 @@ SplineSet
  338 -219 l 1,0,-1
 EndSplineSet
 Validated: 1
-Ligature2: "'liga' Standard Ligatures lookup 41 subtable" f j
 Ligature2: "'dlig' Discretionary Ligatures lookup 38 subtable" f j
 EndChar
 
@@ -23431,7 +23428,6 @@ SplineSet
  358 39 l 1,0,1
 EndSplineSet
 Validated: 1
-Ligature2: "'liga' Standard Ligatures lookup 41 subtable" f i
 Substitution2: "'smcp' Lowercase to Small Capitals lookup 36 subtable" fi.sc
 Substitution2: "'aalt' Access All Alternates lookup 0 subtable" fi.sc
 EndChar
@@ -23573,7 +23569,6 @@ SplineSet
  191 78 191 78 202.5 65.5 c 128,-1,1
 EndSplineSet
 Validated: 1
-Ligature2: "'liga' Standard Ligatures lookup 41 subtable" f l
 Substitution2: "'smcp' Lowercase to Small Capitals lookup 36 subtable" fl.sc
 Substitution2: "'aalt' Access All Alternates lookup 0 subtable" fl.sc
 EndChar
@@ -139171,7 +139166,6 @@ SplineSet
 EndSplineSet
 Validated: 1
 LCarets2: 1 0
-Ligature2: "'ss03' Style Set 3 lookup 46 subtable" h t
 EndChar
 
 StartChar: gdieresis
