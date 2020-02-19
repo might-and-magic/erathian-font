@@ -179,6 +179,9 @@ td {
 	margin: auto;
 	position: relative;
 	padding: 0 10px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	hyphens: auto;
 }
 
 /* Erathian font */
