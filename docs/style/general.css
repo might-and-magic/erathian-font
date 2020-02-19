@@ -60,6 +60,11 @@ ul, ol {
 	margin-left: 1.2em;
 }
 
+img {
+	height: auto;
+	max-width: 100%;
+}
+
 textarea {
 	border: 1px solid #adbec6;
 	padding: 4px;
@@ -143,21 +148,25 @@ input.text:focus {
 	color: #FFF;
 }
 
+.table-wrapper {
+	overflow-x: auto;
+}
+
 table {
-	border-collapse:collapse;
+	border-collapse: collapse;
 	margin: 0.8em auto;
 }
 
 th, td {
 	border: 1px solid #000;
 	text-align: center;
-	font-size: 180%;
+	font-size: 160%;
 	font-weight: normal;
 	line-height: 1.8em;
 }
 
 th {
-	font-size: 130%;
+	font-size: 110%;
 	padding: 0 0.5em;
 }
 
@@ -169,6 +178,7 @@ td {
 	max-width: 1200px;
 	margin: auto;
 	position: relative;
+	padding: 0 10px;
 }
 
 /* Erathian font */
@@ -179,7 +189,7 @@ td {
 /* README.html */
 #certificated {
 	position: absolute;
-	right: 0.4em;
+	right: 2em;
 	top: 2.8em;
 	width: 11em;
 	border: 1px solid #F00;
@@ -203,9 +213,9 @@ td {
 	border-radius: 0.4em;
 }
 
-#note #certificated {
+.translator #certificated {
 	right: 6em;
-	top: -3.3em;
+	top: -2em;
 	-ms-transform: rotate(-10deg);
 	-moz-transform: rotate(-10deg);
 	-webkit-transform: rotate(-10deg);
@@ -245,7 +255,7 @@ td {
 }
 
 .erfonttr td {
-	font-size: 270%;
+	font-size: 230%;
 	line-height: 1.2em;
 }
 
