@@ -1,1 +1,1 @@
-SelectWorthOutputting(); foreach Export("%e.svg"); endloop;
+SelectWorthOutputting(); foreach Export("%e_%n.svg"); endloop;
